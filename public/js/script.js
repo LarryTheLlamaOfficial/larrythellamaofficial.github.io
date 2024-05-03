@@ -3,6 +3,7 @@ let q_types = ["2D+2D", "3D+3D", "4D+4D"];
 let q_type = 0;
 let question = [];
 let answer = "";
+let reverse = false;
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
@@ -25,12 +26,18 @@ document.addEventListener("keydown", (event) => {
         q_type = (q_type - 1 + q_types.length) % q_types.length;
         generateQuestion(q_types[q_type]);
         update();
+    } else if (event.key === "r" || event.key === "R") {
+        reverse = !reverse 
     } else if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(event.key.toString())) {
         if (response.length < answer.length) {
             if (response == " ") {
                 response = event.key;
             } else {
-                response += event.key;
+                if (reverse) {
+                    response = event.key + response;
+                } else {
+                    response += event.key;
+                }
             }
         }
         update();
