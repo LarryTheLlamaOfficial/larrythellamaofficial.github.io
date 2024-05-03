@@ -8,7 +8,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         if (response === answer) {
             response = " ";
-            generateQuestion(q_type);
+            generateQuestion(q_types[q_type]);
             update();
         }
     } else if (event.key === "Backspace") {
