@@ -5,6 +5,14 @@ let question = [];
 let answer = "";
 let reverse = false;
 
+console.log("---- INSTRUCTIONS ----");
+console.log("Press 'Enter' to submit answer");
+console.log("Press 'Backspace' to delete last digit");
+console.log("Press 'ArrowRight' to change question type");
+console.log("Press 'ArrowLeft' to change question type");
+console.log("Press 'r' to toggle reverse input");
+console.log("Press any digit to input answer");
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         if (response === answer) {
