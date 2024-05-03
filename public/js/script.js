@@ -21,7 +21,11 @@ document.addEventListener("keydown", (event) => {
             update();
         }
     } else if (event.key === "Backspace") {
-        response = response.slice(0, -1);
+        if (reverse) {
+            response = response.slice(1);
+        } else {
+            response = response.slice(0, -1);
+        }
         if (response == "") {
             response = " ";
         }
@@ -35,7 +39,7 @@ document.addEventListener("keydown", (event) => {
         generateQuestion(q_types[q_type]);
         update();
     } else if (event.key === "r" || event.key === "R") {
-        reverse = !reverse 
+        reverse = !reverse;
     } else if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(event.key.toString())) {
         if (response.length < answer.length) {
             if (response == " ") {
@@ -93,7 +97,7 @@ const generateAddition3D3D = () => {
         question: [operand[0].toString(), "+" + operand[1].toString()],
         answer: answer.toString(),
     };
-}
+};
 
 const generateAddition4D4D = () => {
     const operand = [generateNumber(4), generateNumber(4)];
@@ -102,7 +106,7 @@ const generateAddition4D4D = () => {
         question: [operand[0].toString(), "+" + operand[1].toString()],
         answer: answer.toString(),
     };
-}
+};
 
 const generateNumber = (digits) => {
     let number = Math.floor(Math.random() * 9) + 1;
