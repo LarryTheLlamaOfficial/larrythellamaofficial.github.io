@@ -22,7 +22,7 @@ document.addEventListener("keydown", (event) => {
         }
     } else if (event.key === "Backspace") {
         if (reverse) {
-            response = response.slice(1);
+            response.shift();
         } else {
             response = response.slice(0, -1);
         }
